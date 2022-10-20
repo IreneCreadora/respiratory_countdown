@@ -22,6 +22,46 @@
       <section class="calendar">
         <ul class="calendar__list"></ul>
       </section>
+      <section>
+        <button type="button">start</button>
+        <div class="timer__items">
+          <div class="timer__box">
+            <div class="timer__item js-timer__days" data-title="днів">00</div>
+            <canvas id="stockGraph" data-days width="200" height="200"></canvas>
+          </div>
+          <div class="timer__box">
+            <div class="timer__item js-timer__hours" data-title="годин">00</div>
+            <canvas
+              id="stockGraph"
+              data-hours
+              width="200"
+              height="200"
+            ></canvas>
+          </div>
+          <div class="timer__box">
+            <div class="timer__item js-timer__minutes" data-title="хвилин">
+              00
+            </div>
+            <canvas
+              id="stockGraph"
+              data-minutes
+              width="200"
+              height="200"
+            ></canvas>
+          </div>
+          <div class="timer__box">
+            <div class="timer__item js-timer__seconds" data-title="секунд">
+              00
+            </div>
+            <canvas
+              id="stockGraph"
+              data-seconds
+              width="200"
+              height="200"
+            ></canvas>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
