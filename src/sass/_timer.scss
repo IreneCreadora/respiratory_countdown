@@ -1,10 +1,41 @@
+.timer__section {
+  display: block;
+  padding-top: 65px;
+}
+
+.timer__title {
+  margin-right: 50px;
+  font-size: 36px;
+  font-family: 'Neucha', cursive;
+  text-align: right;
+}
+
+.timer__btn {
+  display: block;
+  margin: 30px 50px 0 auto;
+  padding: 10px;
+  font-family: 'Neucha', cursive;
+  font-size: 20px;
+  color: var(--primary-accent-color);
+  min-width: 100px;
+  // height: 30px;
+  border: 1px solid lawngreen;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 5px #000;
+}
+
+.is-hidden {
+  display: none;
+}
+
 .timer__items {
   display: flex;
   font-family: 'Libre Baskerville', serif;
   font-weight: 700;
   font-size: 40px;
   max-width: max-content;
-  margin: 0 auto;
+  margin: 30px 50px 0 auto;
 }
 
 .timer__box {
@@ -34,8 +65,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  color: rgb(52, 219, 6);
+  color: var(--primary-accent-color);
 }
 
 .timer__item::before {
