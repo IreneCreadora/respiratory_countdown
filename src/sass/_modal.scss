@@ -1,0 +1,28 @@
+.modal {
+  background-color: #685959;
+  background-image: linear-gradient(
+      rgba(68, 59, 59, 0.7),
+      rgba(68, 59, 59, 0.7)
+    ),
+    url('../images/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 800px;
+  height: 500px;
+  text-align: center;
+  font-family: 'Neucha', cursive;
+  color: var(--white-text-color);
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.modal__title {
+  padding: 100px 0 30px 0;
+  font-size: 30px;
+}
+
+.modal__text {
+  max-width: 400px;
+  margin: 0 auto;
+}
