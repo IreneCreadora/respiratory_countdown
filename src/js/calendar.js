@@ -21,7 +21,7 @@ function onCalendarClick(e) {
     return;
   }
   e.preventDefault();
-  const currentDay = e.target.dataset.day;
+  const currentDay = e.target.closest('li').dataset.day;
   modalShow(currentDay);
 }
 
