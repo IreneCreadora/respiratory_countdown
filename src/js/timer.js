@@ -18,12 +18,11 @@ export class Timer {
 
   start() {
     this.#getRefs();
-    refs.startTimer.disabled = true;
+    refs.startTimer.classList.add('is-hidden');
     this.#timerId = setInterval(() => {
       const dif = newYearDate - Date.now();
       if (dif < 1000) {
         clearInterval(this.#timerId);
-        refs.startTimer.disabled = false;
       }
 
       const data = this.convertMs(dif);
