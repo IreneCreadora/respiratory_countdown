@@ -10,8 +10,7 @@ export function calendar() {
 }
 
 function createMarkup({ day }) {
-  return `<li class="calendar__item" data-day="${day}"><a href=""><span>${day}</span>
-    </a>
+  return `<li class="calendar__item" data-day="${day}"><span>${day}</span>
     </li>`;
 }
 
@@ -32,8 +31,26 @@ function modalShow(currentDay) {
   const { title, text } = christmasTasks.find(task => task.day === currentDay);
   instance = basicLightbox.create(
     `<div class="modal">
-        <p class="calendar__title">${title}</p>
-        <p class="calendar__text">${text}</p>
+      <ul class="lightrope">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li> 
+      </ul>
+      <p class="modal__title">${title}</p>
+      <p class="modal__text">${text}</p>
     </div>`,
     {
       onShow: instance => {
