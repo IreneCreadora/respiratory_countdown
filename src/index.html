@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Neucha&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./sass/index.scss" />
@@ -22,15 +22,16 @@
       <section class="calendar">
         <ul class="calendar__list"></ul>
       </section>
-      <section>
-        <button type="button">start</button>
+      <section class="timer__section">
+        <h2 class="timer__title">До святкування Нового Року залишилось...</h2>
+        <button type="button" class="timer__btn">Запустити таймер</button>
         <div class="timer__items">
           <div class="timer__box">
-            <div class="timer__item js-timer__days" data-title="днів">00</div>
+            <div class="timer__item js-timer__days" data-title="днів">?</div>
             <canvas id="stockGraph" data-days width="200" height="200"></canvas>
           </div>
           <div class="timer__box">
-            <div class="timer__item js-timer__hours" data-title="годин">00</div>
+            <div class="timer__item js-timer__hours" data-title="годин">?</div>
             <canvas
               id="stockGraph"
               data-hours
@@ -40,7 +41,7 @@
           </div>
           <div class="timer__box">
             <div class="timer__item js-timer__minutes" data-title="хвилин">
-              00
+              ?
             </div>
             <canvas
               id="stockGraph"
@@ -51,7 +52,7 @@
           </div>
           <div class="timer__box">
             <div class="timer__item js-timer__seconds" data-title="секунд">
-              00
+              ?
             </div>
             <canvas
               id="stockGraph"
