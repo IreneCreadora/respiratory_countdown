@@ -86,7 +86,7 @@ export class Timer {
 
     let path = 60 / 2;
     if (index === 0) {
-      path = 20 / 2;
+      path = 25 / 2;
     }
 
     if (index === 1) {
