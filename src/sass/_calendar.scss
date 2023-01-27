@@ -3,9 +3,6 @@
   flex-wrap: wrap;
   padding-top: 50px;
   width: 100%;
-  @include mobile {
-    width: 240px;
-  }
   @include tablet {
     width: 384px;
   }
