@@ -1,9 +1,68 @@
-@import './common';
+// @import './common';
 @import './variables';
-@import './mixins';
-@import './container';
+// @import './mixins';
+// @import './container';
+body {
+  font-family: 'Gothic A1', sans-serif;
+  margin: 3rem 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(
+    --white-color
+  ); // Light grayish background for the entire page
+}
 
-@import './calendar';
-@import './modal';
-@import './timer';
-@import './lightrope';
+.header {
+  background-color: var(--white-color); // White header background
+  padding: 5rem 0;
+  text-align: center;
+  h1 {
+    color: var(--primary-text-color); // Dark teal color for the header text
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.main-content {
+  background-color: var(--brand-color); // Purple background
+  padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+
+  .number-box {
+    color: var(--white-color);
+    width: 30%; // Adjust box width
+    p {
+      margin: 2rem 0;
+      color: var(--white-color);
+      font-size: 1.5rem;
+      font-weight: semi-bold;
+    }
+
+    .number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--white-color); // White number text
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: var(--grey-color);
+    }
+  }
+}
+
+.footer {
+  background-color: var(--white-color);
+  padding: 2rem 0;
+  text-align: center;
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--brand-color); // Purple footer text
+    margin: 0;
+  }
+}

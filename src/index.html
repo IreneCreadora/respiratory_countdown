@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>christmas-advent-calendar</title>
+    <title>respiratory-countdown</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Neucha&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./sass/index.scss" />
@@ -15,54 +15,89 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
     />
-    <script type="module" src="./index.js"></script>
+    <!-- <script type="module" src="./index.js"></script> -->
   </head>
   <body>
-    <div class="container">
-      <section class="calendar">
-        <ul class="calendar__list"></ul>
-      </section>
-      <section class="timer__section">
-        <h2 class="timer__title">До святкування Нового Року залишилось...</h2>
-        <button type="button" class="timer__btn">Запустити таймер</button>
-        <div class="timer__items">
-          <div class="timer__box">
-            <div class="timer__item js-timer__days" data-title="днів">?</div>
-            <canvas id="stockGraph" data-days width="200" height="200"></canvas>
-          </div>
-          <div class="timer__box">
-            <div class="timer__item js-timer__hours" data-title="годин">?</div>
-            <canvas
-              id="stockGraph"
-              data-hours
-              width="200"
-              height="200"
-            ></canvas>
-          </div>
-          <div class="timer__box">
-            <div class="timer__item js-timer__minutes" data-title="хвилин">
-              ?
-            </div>
-            <canvas
-              id="stockGraph"
-              data-minutes
-              width="200"
-              height="200"
-            ></canvas>
-          </div>
-          <div class="timer__box">
-            <div class="timer__item js-timer__seconds" data-title="секунд">
-              ?
-            </div>
-            <canvas
-              id="stockGraph"
-              data-seconds
-              width="200"
-              height="200"
-            ></canvas>
-          </div>
-        </div>
-      </section>
-    </div>
+    <header class="header" id="header">
+      <h1>Header Text Placeholder</h1>
+      <button id="startIncrement" class="increment-button">
+        Start Increment
+      </button>
+      <button id="increase24" class="increment-button">
+        Increase for 24 hours
+      </button>
+    </header>
+
+    <main class="main-content">
+      <div class="number-box" id="box1">
+        <p>Worldwide there are</p>
+        <span class="number" id="num1"> 454 000 000 </span>
+        <p class="subtitle">people living with a respiratory condition</p>
+      </div>
+      <div class="number-box" id="box2">
+        <p>Since the start of CES</p>
+        <span class="number" id="num2">380</span>
+        <p class="subtitle">people were diagnosed</p>
+      </div>
+      <div class="number-box" id="box3">
+        <p>Diagnosis can take months to several years, within this time</p>
+        <span class="number" id="num3">7</span>
+        <p class="subtitle">
+          people die as a result of a respiratory condition
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>purpleDx can reduce this time...</p>
+    </footer>
+
+    <script>
+      let initialNum2 = 380.52;
+      let initialNum3 = 7.61;
+      let intervalId;
+
+      function startIncrement() {
+        if (intervalId) return; // Prevent multiple intervals
+        intervalId = setInterval(() => {
+          incrementNumbers();
+        }, 60000); // Increment every minute
+      }
+
+      function incrementNumbers() {
+        const num2 = document.getElementById('num2');
+        const num3 = document.getElementById('num3');
+
+        initialNum2 += 380.52;
+        initialNum3 += 7.61;
+
+        num2.textContent = Math.round(initialNum2); // Display rounded value
+        num3.textContent = Math.round(initialNum3); // Display rounded value
+      }
+
+      function updateForHours(hours) {
+        const num2 = document.getElementById('num2');
+        const num3 = document.getElementById('num3');
+
+        const incrementNum2 = 380.52 * (hours * 60); // Increment per minute
+        const incrementNum3 = 7.61 * (hours * 60); // Increment per minute
+
+        initialNum2 += incrementNum2;
+        initialNum3 += incrementNum3;
+
+        num2.textContent = Math.round(initialNum2); // Display rounded value
+        num3.textContent = Math.round(initialNum3); // Display rounded value
+      }
+
+      document.getElementById('increase24').addEventListener('click', () => {
+        updateForHours(24); // Increase num2 and num3 for 24 hours
+      });
+
+      document
+        .getElementById('startIncrement')
+        .addEventListener('click', () => {
+          startIncrement(); // Start the automatic increment every minute
+        });
+    </script>
   </body>
 </html>

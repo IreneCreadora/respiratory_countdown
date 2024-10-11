@@ -1,11 +1,11 @@
 {
-  "name": "parcel-project-template",
+  "name": "respiratory_countdown",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://IreneCreadoraclear.github.io/christmas-advent-calendar",
+  "homepage": "https://IreneCreadoraclear.github.io/respiratory_countdown",
   "scripts": {
     "start": "parcel src/*.html --port 2225",
-    "build": "parcel build src/*.html --public-url /christmas-advent-calendar/"
+    "build": "parcel build src/*.html --public-url /respiratory_countdown/"
   },
   "repository": {
     "type": "git",
