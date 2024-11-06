@@ -2,67 +2,88 @@
 @import './variables';
 // @import './mixins';
 // @import './container';
+/* Particles.js Container */
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-color); // Particle container background
+}
+
 body {
   font-family: 'Gothic A1', sans-serif;
-  margin: 3rem 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  background-color: var(
-    --white-color
-  ); // Light grayish background for the entire page
+  background-color: transparent; // Light grayish background for the entire page
+}
+canvas {
+  display: block;
 }
 
 .header {
-  background-color: var(--white-color); // White header background
-  padding: 5rem 0;
-  text-align: center;
-  h1 {
-    color: var(--primary-text-color); // Dark teal color for the header text
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin: 0;
-  }
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  align-items: center;
+  z-index: 1; /* Ensures header is on top */
+  position: relative; /* Set a stacking context */
+}
+
+.header-logo {
+  margin: 2rem auto;
+  width: 50%;
 }
 
 .main-content {
-  background-color: var(--brand-color); // Purple background
-  padding: 2rem;
+  z-index: 1;
+  position: relative;
+  background-color: var(--brand-color);
+  padding: 0 2rem; // Added padding inside the container to prevent the white gap
   display: flex;
-  justify-content: space-around;
-  text-align: center;
+  justify-content: space-between; // Distribute boxes evenly
+  gap: 2rem;
 
   .number-box {
     color: var(--white-color);
-    width: 30%; // Adjust box width
-    p {
-      margin: 2rem 0;
-      color: var(--white-color);
-      font-size: 1.5rem;
-      font-weight: semi-bold;
+    flex: 1; // Allow boxes to grow and fill space equally
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Center items vertically in each box
+    text-align: center;
+    min-height: 20rem; // Set a minimum height to align boxes equally
+
+    // First line of text (title/description)
+    p:first-of-type {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      line-height: 1.8rem;
+      min-height: 5rem;
     }
 
     .number {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: bold;
-      color: var(--white-color); // White number text
+      color: var(--white-color);
+      margin: 0.5rem 0;
     }
 
     .subtitle {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: normal;
-      color: var(--grey-color);
+      margin-top: 1rem;
+      line-height: 1.2rem;
     }
   }
 }
 
 .footer {
-  background-color: var(--white-color);
-  padding: 2rem 0;
-  text-align: center;
-  p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--brand-color); // Purple footer text
-    margin: 0;
-  }
+  background-color: transparent;
+  padding: 2rem 0 0 0;
+  text-align: end;
+  color: var(--grey-color);
+  margin-right: 2rem;
+  z-index: 1; /* Ensures header is on top */
+  position: relative; /* Set a stacking context */
 }

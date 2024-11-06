@@ -18,29 +18,32 @@
     <!-- <script type="module" src="./index.js"></script> -->
   </head>
   <body>
+    <!-- Particles Container -->
+    <div id="particles-js"></div>
+
     <header class="header" id="header">
-      <h1>Header Text Placeholder</h1>
-      <button id="startIncrement" class="increment-button">
-        Start Increment
-      </button>
-      <button id="increase24" class="increment-button">
-        Increase for 24 hours
-      </button>
+      <img
+        src="../assets/images/logo.png"
+        alt="purpleDx Logo"
+        class="header-logo"
+      />
     </header>
 
     <main class="main-content">
       <div class="number-box" id="box1">
-        <p>Worldwide there are</p>
-        <span class="number" id="num1"> 454 000 000 </span>
+        <p>Worldwide<br />there are</p>
+        <span class="number" id="num1">454,000,000</span>
         <p class="subtitle">people living with a respiratory condition</p>
       </div>
       <div class="number-box" id="box2">
-        <p>Since the start of CES</p>
+        <p>Since the start of CES<br />7th January 10am</p>
         <span class="number" id="num2">380</span>
         <p class="subtitle">people were diagnosed</p>
       </div>
       <div class="number-box" id="box3">
-        <p>Diagnosis can take months to several years, within this time</p>
+        <p>
+          Diagnosis can take<br />months to several years,<br />within this time
+        </p>
         <span class="number" id="num3">7</span>
         <p class="subtitle">
           people die as a result of a respiratory condition
@@ -49,55 +52,164 @@
     </main>
 
     <footer class="footer">
-      <p>purpleDx can reduce this time...</p>
+      <button id="startIncrement" class="increment-button">
+        Start Increment
+      </button>
+      <button id="increase24" class="increment-button">
+        Increase for 24 hours
+      </button>
+      <p>* Institute for Health Metrics and Evaluation</p>
     </footer>
+    <!-- Include particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Particles Configuration -->
+    <script>
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: 200, // Reduced number for larger node spacing, like the image
+            density: {
+              enable: true,
+              value_area: 1000, // Increased area to spread out the particles
+            },
+          },
+          color: {
+            value: '#939393', // Grey color like in the image
+          },
+          shape: {
+            type: 'circle',
+            stroke: {
+              width: 0.1,
+              color: '#111111',
+            },
+          },
+          opacity: {
+            value: 0.7, // Slight opacity
+            random: false,
+            anim: {
+              enable: false,
+            },
+          },
+          size: {
+            value: 8, // Larger nodes to match the image
+            random: true,
+            anim: {
+              enable: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#939393', // Line color to match the image
+            opacity: 0.4,
+            width: 3, // Slightly thicker lines
+          },
+          move: {
+            enable: true,
+            speed: 2.5, // speed controle
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: {
+              enable: true,
+              mode: 'grab', // Keeps the structure interactive
+            },
+            onclick: {
+              enable: true,
+              mode: 'push',
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 140,
+              line_linked: {
+                opacity: 0.8,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
 
     <script>
       let initialNum2 = 380.52;
       let initialNum3 = 7.61;
       let intervalId;
 
+      // Helper function to format numbers with commas
+      function formatNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
+
       function startIncrement() {
         if (intervalId) return; // Prevent multiple intervals
-        intervalId = setInterval(() => {
-          incrementNumbers();
-        }, 60000); // Increment every minute
+        intervalId = setInterval(incrementNumbers, 60000); // Increment every minute
       }
 
       function incrementNumbers() {
-        const num2 = document.getElementById('num2');
-        const num3 = document.getElementById('num3');
-
         initialNum2 += 380.52;
         initialNum3 += 7.61;
 
-        num2.textContent = Math.round(initialNum2); // Display rounded value
-        num3.textContent = Math.round(initialNum3); // Display rounded value
+        // Update the displayed numbers with formatted values
+        document.getElementById('num2').textContent = formatNumber(
+          Math.round(initialNum2)
+        );
+        document.getElementById('num3').textContent = formatNumber(
+          Math.round(initialNum3)
+        );
       }
 
       function updateForHours(hours) {
-        const num2 = document.getElementById('num2');
-        const num3 = document.getElementById('num3');
+        // Calculate total increment for the given number of hours
+        const totalIncrementNum2 = 380.52 * (hours * 60); // Increment per minute
+        const totalIncrementNum3 = 7.61 * (hours * 60); // Increment per minute
 
-        const incrementNum2 = 380.52 * (hours * 60); // Increment per minute
-        const incrementNum3 = 7.61 * (hours * 60); // Increment per minute
+        initialNum2 += totalIncrementNum2;
+        initialNum3 += totalIncrementNum3;
 
-        initialNum2 += incrementNum2;
-        initialNum3 += incrementNum3;
-
-        num2.textContent = Math.round(initialNum2); // Display rounded value
-        num3.textContent = Math.round(initialNum3); // Display rounded value
+        // Update the displayed numbers with formatted values
+        document.getElementById('num2').textContent = formatNumber(
+          Math.round(initialNum2)
+        );
+        document.getElementById('num3').textContent = formatNumber(
+          Math.round(initialNum3)
+        );
       }
 
+      // Event listeners for button clicks
       document.getElementById('increase24').addEventListener('click', () => {
         updateForHours(24); // Increase num2 and num3 for 24 hours
       });
 
       document
         .getElementById('startIncrement')
-        .addEventListener('click', () => {
-          startIncrement(); // Start the automatic increment every minute
-        });
+        .addEventListener('click', startIncrement);
     </script>
   </body>
 </html>
